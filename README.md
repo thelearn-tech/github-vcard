@@ -6,8 +6,6 @@ A JavaScript based web interface to see details about GitHub users.
 ![](https://img.shields.io/badge/Code-HTML_CSS_JS-pink)
 ![](https://img.shields.io/badge/Maintained-Yes-green)
 
-<br>
-<br>
 
 <a href="https://github.com/thelearn-tech/github-user-card/issues">
       <img alt="Issues" src="https://img.shields.io/github/issues/thelearn-tech/github-user-card?color=0088ff" />
