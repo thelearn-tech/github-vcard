@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/69230350?v=4">
+    <title>Github User Card (thelearn-tech)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
+    
+  
+      <script type="text/javascript">
+
+      
+         
+
+           
+
+        // getting the searched user name ?user=thelearn-tech
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    var searchedUser = 'user',
+        userNameSearched = getUrlParameter(searchedUser);
+        
+      // if there is no use name searched then set the username to be thelearn-tech  
+
+        if (getUrlParameter(searchedUser) == "") {
+          userNameSearched = "thelearn-tech";
+        } else {
+          userNameSearched = getUrlParameter(searchedUser);
+        }
+      
+
+      
+      // sending request to see if searced user is valid or not
+       var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.github.com/users/' + userNameSearched);
+  xhr.onload = function () {
+  
+  if (xhr.status == "200") { // if user is valid (found)
+    $.getJSON("https://api.github.com/users/" + userNameSearched,
+    function(data) {
+    document.getElementById("avatarSrc").src = data.avatar_url;
+    document.getElementById("GithubUserName").innerHTML = data.login;
+    if (data.name == null) {
+      document.getElementById("userName").innerHTML = "Not Provided";
+    } else {
+      document.getElementById("userName").innerHTML = data.name;
+    }
+
+    if (data.company == null) {
+      document.getElementById("userCompany").innerHTML = "Not Provided";
+    } else {
+      document.getElementById("userCompany").innerHTML = data.company;
+    }
+     
+    if (data.email == null) {
+      document.getElementById("userMail").innerHTML = "Not Provided";
+
+    } else {
+       document.getElementById("userMail").innerHTML = data.email;
+    }
+
+    if (userNameSearched == "thelearn-tech") {
+      document.getElementById("userMail").innerHTML = "pb.thelearn.tech@gmail.com";
+    } 
+    
+    
+    if (data.blog == "") {
+      document.getElementById("userBlog").innerHTML = "Not Provided";
+    } else {
+      document.getElementById("userBlog").innerHTML = data.blog;
+    }
+    document.getElementById("userFollowers").innerHTML = data.followers;
+    if (data.location == null) {
+      document.getElementById("userLocation").innerHTML = "Not Provided";
+    } else {
+      document.getElementById("userLocation").innerHTML = data.location;
+    }
+    
+    if (data.twitter_username == null) { // if there is no twitter then remove twitter icon
+       var twitterLink = document.getElementById("userTwitter");
+       twitterLink.remove();
+     } else {
+       document.getElementById("userTwitter").href = "https://twitter.com/" + data.twitter_username;
+     }
+     if (userNameSearched == "thelearn-tech") {
+         // do nothing
+     } else {
+      var myInsta = document.getElementById("myInstagram");
+       myInsta.remove();
+     }
+      
+
+    document.getElementById("userGithub").href = "https://github.com/" + data.login;
+    })
+   } else { // if user not found (not valid)
+    document.getElementById("avatarSrc").src = "https://i.ibb.co/R3yj1tH/404-freepik.com.jpg";
+    document.getElementById("userName").innerHTML = " 404 Not Found";
+    document.getElementById("GithubUserName").innerHTML = "404 Not Found";
+    document.getElementById("userCompany").innerHTML = "404 Not Found";
+    document.getElementById("userMail").innerHTML = "404 Not Found";
+    document.getElementById("userBlog").innerHTML = "404 Not Found";
+    document.getElementById("userFollowers").innerHTML = "404 Not Found";
+    document.getElementById("userLocation").innerHTML = "404 Not Found";
+    var twitterLink = document.getElementById("userTwitter");
+       twitterLink.remove();
+    var githubLink = document.getElementById("userGithub");
+        githubLink.remove();
+   }
+   
+};
+  
+     xhr.send();
+    
+   
+  
+
+    // setting avartar url
+    
+    </script>
+    <style>
+     
+    #form { height: 370px;
+    width: 610px;
+    margin:0 auto;
+    background-color:#E1FFFD;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px 1px rgba(0,2,2,0.5);
+    }
+
+    .fromDark {
+     height: 370px;
+    width: 610px;
+    margin:0 auto;
+    color: white;
+    background-color:#393939;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px 1px rgba(0,2,2,0.5);
+    }
+
+    h2 {
+    margin-top: 50px;
+    padding-top: 10px;
+    text-align: center;
+    }
+    img {
+    width: 250px;
+    height: 260px;
+    margin-top: 10px;
+    margin-left: 3px;
+    margin-right: 10px;
+    position: left;
+    float: left;
+    border-radius: 10px;
+    
+    }
+    .details_holder_1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -200px;
+    
+    }
+    .details_holder {
+    font-size: 16px;
+    font-weight: bold;
+    }
+    .details {
+    font-size: 16px;
+    font-style: italic;
+    }
+    .topbar {
+    width: 600px;
+    height: 30px;
+    padding-left: 5px;
+    background-color:#ABDCE2;
+    padding: 5px;
+    }
+
+
+    
+
+
+    .searchBox {
+    height: 28px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 5px;
+    padding: 1px;
+    float: right;
+    color: black;
+    background-color: #D0EEF3;
+    border-style: solid;
+    border-color: #A950CA; 
+
+   }
+
+
+  .navBtn {
+    width: 60px;
+    height: 28px;
+    margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 10px;
+  padding: 2px;
+  float: left;
+  background-color: #D0EEF3; 
+  border-style: solid;
+  border-color: #A950CA; 
+  }
+
+    
+  #main {
+    display: block;
+  }
+  #aboutSection {
+    display: none;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+
+     
+  }
+  
+  
+
+  .right {
+  float: right;
+  margin-right: 10px;
+  }
+    
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <h2>Github User Card</h2>
+      <div>
+        <div id="topbar" class="topbar">
+          <button type="button" id="navBtn" class="navBtn" onclick="showHome()">Home</button>
+          <button type="button" id="navBtn2" class="navBtn" onclick="showAbout()">About</button>
+          
+        <input type="search" id="searchBox" class="searchBox" placeholder="Search Username" name="user">
+        </div>
+        <div id="aboutSection">
+          <p style="margin-top: 100px;">
+          This is a <b>JavaScript</b> based "Github User Card" page, which pulls data from <a href="https://api.github.com"><u>https://api.github.com</a></u>. All the data presented in this page is publicaly avaliable.</p>
+          <p style="float: right; margin-right: 40px;"> by <a href="https://github.com/thelearn-tech/"><b>thelearn-tech.</a></b></p>
+        </div>
+        <div id="main">
+      <img  id="avatarSrc" src="" alt="Avatar">
+      <br>
+      <x class="details_holder_1">Name : </x><x class="details" id="userName"> </x>
+      <br>
+      <br>
+      <x class="details_holder">Username : </x><x class="details" id="GithubUserName"> </x>
+      <br>
+      <br>
+      <x class="details_holder">Company : </x><x class="details" id="userCompany"> </x>
+      <br>
+      <br>
+      <x class="details_holder">Email : </x><x class="details" id="userMail"> </x>
+      <br>
+      <br>
+      <x class="details_holder">Blog : </x><x class="details" id="userBlog"> </x>
+      <br>
+      <br>
+      <x class="details_holder">Followers : </x><x class="details" id="userFollowers"> </x>
+      <br>
+      <br>
+      <x class="details_holder">Location : </x><x class="details" id="userLocation"> </x>
+      <a id="userGithub" href="https://github.com/thelearn-tech/"<i class="fab fa-github right" style="margin-right: 20px;"></a>  <a id="userTwitter" href="https://twitter.com/thelearn_tech/" <i class="fab fa-twitter right"></a><a id="myInstagram" href="https://instagram/thelearn_tech/" <i class="fab fa-instagram right"></a>
+      </div>
+          </form>
+<script type="text/javascript">
+   function showAbout() {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("aboutSection").style.display = "block";
+    
+   }
+
+</script>
+<script type="text/javascript">
+  function showHome() {
+    document.getElementById("main").style.display = "block";
+    document.getElementById("aboutSection").style.display = "none";
+ 
+  }
+
+
+</script>
+
+  </body>
+</html>
