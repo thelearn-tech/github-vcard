@@ -15,7 +15,7 @@ A JavaScript based web interface to see details about GitHub users.
 <br>
 <br>
 
-![](https://raw.githubusercontent.com/thelearn-tech/img/main/IMG_20220108_193823.jpg)
+![](https://raw.githubusercontent.com/thelearn-tech/img/main/IMG_20220121_161512.jpg)
 
 <br>
 <br>
