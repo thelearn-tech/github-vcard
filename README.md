@@ -20,5 +20,5 @@ A JavaScript based web interface to see details about GitHub users.
 <br>
 <br>
 
-Try [here](https://thelearn-tech.github.io/github-user-card)
-or directly visit https://thelearn-tech.github.io/github-user-card
+Try [here](https://thelearn-tech.github.io/github-vcard)
+or directly visit https://thelearn-tech.github.io/github-vcard/vcard.html/user=
